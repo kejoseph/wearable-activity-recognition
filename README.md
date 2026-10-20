@@ -53,8 +53,6 @@ d.split     # official "train" / "test" assignment
 
 ## Plan
 
-See [THEORY.md](THEORY.md) for the reasoning behind each step.
-
 1. Majority-class baseline
 2. Logistic regression and gradient boosting on engineered features
 3. 1D convolutional neural network (PyTorch) on raw signals
