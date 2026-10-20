@@ -1,4 +1,5 @@
 data/
 __pycache__/
-.ipynb_checkpoints/THEORY.md
+.ipynb_checkpoints/
+THEORY.md
 .vscode/
