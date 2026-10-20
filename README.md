@@ -22,6 +22,18 @@ data/UCI HAR Dataset/
 
 `data/` is git-ignored. If the folder is missing, the loader tries to download it automatically.
 
+ 
+## What the data looks like
+
+![Windows per activity](figures/windows_per_activity.png)
+![Windows per subject](figures/windows_per_subject.png)
+
+- **Classes are balanced:** each activity has roughly 1,400–1,950 windows, so accuracy won't be badly misleading.
+- **People are balanced:** every subject contributes 280+ windows, so no single person dominates training.
+- **Sitting vs standing is the hard pair:** both are static, so the signal is mostly gravity. They differ only in how gravity is split across the phone's axes, which reflects a small change in tilt.
+
+![Raw signals per activity](figures/raw_signals_per_activity.png)
+
 ## Usage
 
 ```bash
@@ -52,8 +64,8 @@ See [THEORY.md](THEORY.md) for the reasoning behind each step.
 
 ## Results
 
-_Coming soon._
-
+A majority-class baseline scores about 19% accuracy under both splits. Any real model must clear this.
+Logistic regression on the 561 engineered features reaches 0.985 macro-F1 with a random split but 0.957 when tested on unseen people. The random split nearly triples-understates the error rate, and hides a 4× larger variation between people. All results below use person-level splits.
 ## What I'd recommend the product team do
 
 _Coming soon._
