@@ -63,7 +63,15 @@ d.split     # official "train" / "test" assignment
 ## Results
 
 A majority-class baseline scores about 19% accuracy under both splits. Any real model must clear this.
-Logistic regression on the 561 engineered features reaches 0.985 macro-F1 with a random split but 0.957 when tested on unseen people. The random split nearly triples-understates the error rate, and hides a 4× larger variation between people. All results below use person-level splits.
+Logistic regression on the 561 engineered features reaches 0.985 macro-F1 with a random split but 0.957 when tested on unseen people. The random split understates the error rate by nearly 3× (1.5% vs 4.3%) and hides a 4× larger variation between people. All results below use person-level splits.
+
+| Model               | Split                  | Accuracy      | Macro-F1      |
+|:--------------------|:-----------------------|:--------------|:--------------|
+| Majority baseline   | Random (KFold)         | 0.184 ± 0.011 | 0.052 ± 0.003 |
+| Majority baseline   | By person (GroupKFold) | 0.189 ± 0.011 | 0.053 ± 0.003 |
+| Logistic regression | Random (KFold)         | 0.984 ± 0.004 | 0.985 ± 0.003 |
+| Logistic regression | By person (GroupKFold) | 0.958 ± 0.014 | 0.957 ± 0.015 |
+
 ## What I'd recommend the product team do
 
 _Coming soon._
